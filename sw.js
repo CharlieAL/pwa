@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v1_cache_hector_ortiz_pwa'
+const CACHE_NAME = 'v1_cache_charlie_pa'
 
 var urlsToCache = [
   './',
