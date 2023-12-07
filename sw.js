@@ -31,6 +31,7 @@ self.addEventListener('install', (e) => {
       .open(CACHE_NAME)
       .then((cache) => {
         return cache.addAll(urlsToCache).then(() => {
+          console.log('first cache')
           self.skipWaiting()
         })
       })
@@ -47,6 +48,7 @@ self.addEventListener('activate', (e) => {
     caches
       .keys()
       .then((cacheNames) => {
+        console.log(cacheNames)
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheWhiteList.indexOf(cacheName) === -1) {
@@ -64,6 +66,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((res) => {
+      console.log('res')
       if (res) {
         return res
       }
